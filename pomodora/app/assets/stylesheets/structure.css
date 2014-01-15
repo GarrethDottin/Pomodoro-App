@@ -59,10 +59,15 @@ h3 {
 
 #yes {
   display: none;
+  right: 80px;
+
 }
 
 #no {
   display: none;
+  bottom: 40px;
+  position: relative;
+  top: 65px;
 }
 .progressBar {
 width: 400px;

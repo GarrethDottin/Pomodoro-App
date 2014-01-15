@@ -61,7 +61,7 @@ $(function() {
 
 $(function() {
   var id = 10
-  $('#start').on("click", function() {
+  $('#yes').on("click", function() {
     id +=10
   $('.progressBar').attr("id", "max" + id)
   function progress(percent, element) {
