@@ -1,13 +1,30 @@
 Pomodora Action List:
-
 Goal: create a pomodoro style app using Flat UI and modular code. Apply Habit design and gear the product towards women. Get user feedback from friends, and actual user testing software
 
 
 
+Technology:
+-Modular Code
+  I. Modularized Javascript
+  II. Object Oriented CSS
+-Handlebars Practice
+-
+
+
+Notes on Design:
+-Women prefer tints of colors
+-Women prefer softer colors
+-Use more rounded color schemes
+-Pay attention color choices
 Release 1:
--Get Timer Working
+-Get Timer Working COMPLETE
 -Get Slider working
--Allow user to input items and see them come up in the
+-Allow user to input items and see them come up in the side
 -Style Div
   I. All Pieces in the correct place
   II. Main Div Sytlized
+
+  Steps:
+    I.  Setup Slider
+    II. Setup so Slider Increases when the user says yes
+    II. Style Div

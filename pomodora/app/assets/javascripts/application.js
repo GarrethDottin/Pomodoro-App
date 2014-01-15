@@ -16,57 +16,66 @@
 //= require_tree .
 //= require twitter/bootstrap
 
-console.log("this is working1")
-$(function() {
-  // $.fn.addSliderSegments = function (amount) {
-  //   return this.each(function () {
-  //     var segmentGap = 100 / (amount - 1) + "%"
-  //       , segment = "<div class='ui-slider-segment' style='margin-left: " + segmentGap + ";'></div>";
-  //     $(this).prepend(segment.repeat(amount - 2));
-  //   });
-  // };
-  // var $slider = $("#slider");
-  //   if ($slider.length) {
-  //     $slider.slider({
-  //       min: 1,
-  //       max: 5,
-  //       value: 2,
-  //       orientation: "horizontal",
-  //       range: "min"
-  //     }).addSliderSegments($slider.slider("option").max);
-  //   }
 
-  console.log("this is working")
-  var button = $('button')
+$(function() {
+  var button = $('#start')
   button.on("click", function() {
     var useritem = $('#textbox').val()
-    console.log(useritem)
-    console.log("this is hit")
     $('#header').hide()
     $('.completed').text(useritem)
-    countdown("countdown", 24, 59);
+    countdown("countdown", 0, 5);
   })
-
-    function countdown(element, minutes, seconds) {
-      var time = minutes*60 + seconds;
-      var interval = setInterval(function() {
-          var el = document.getElementById(element);
-          if(time == 0) {
-              el.innerHTML = "countdown's over!";
-              clearInterval(interval);
-              return;
-          }
-
-          var minutes = Math.floor( time / 60 );
-          if (minutes < 10) minutes = "0" + minutes;
-          var seconds = time % 60;
-          if (seconds < 10) seconds = "0" + seconds;
-          var text = minutes + ':' + seconds;
-          el.innerHTML = text;
-          time--;
-      }, 1000);
+  function buttonToggle( ) {
+    $('#yes').fadeToggle( "slow", "linear" )
+    $('#no').fadeToggle( "slow", "linear" )
+  }
+  function countdown(element, minutes, seconds) {
+    var time = minutes*60 + seconds;
+    var interval = setInterval(function() {
+    var el = document.getElementById(element);
+      if(time == -1) {
+        $('#start').fadeToggle( "slow", "linear" )
+        $('#start').css("display", "none")
+        buttonToggle()
+        clearInterval(interval);
+        return;
+      }
+      var minutes = Math.floor( time / 60 );
+      if (minutes < 10) minutes = "0" + minutes;
+      var seconds = time % 60;
+      if (seconds < 10) seconds = "0" + seconds;
+      var text = minutes + ':' + seconds;
+      el.innerHTML = text;
+      time--;
+  }, 1000);
 }
+  $('#yes').on("click", function () {
+    buttonToggle()
+    $('#no').css("display", "none")
+    $('#yes').css("display", "none")
+    $('#start').fadeToggle( "slow", "linear" )
+    $('#start').css("display", "inline")
+  })
+})
 
 
+
+
+    var id = 10;
+$(function() {
+  $('#start').on("click", function() {
+    id +=10
+  $('.progressBar').attr("id", "max" + id)
+  function progress(percent, element) {
+    var progressBarWidth = percent * element.width() / 100;
+    element.find('div').animate({ width: progressBarWidth }, 500);
+  }
+  $('.progressBar').each(function() {
+    var bar = $(this);
+    var max = $(this).attr('id');
+    max = max.substring(3);
+    progress(max, bar);
+  });
+});
 
 })
