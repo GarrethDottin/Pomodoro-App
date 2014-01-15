@@ -61,8 +61,8 @@ $(function() {
 
 
 
-    var id = 10;
 $(function() {
+  var id = 10
   $('#start').on("click", function() {
     id +=10
   $('.progressBar').attr("id", "max" + id)
