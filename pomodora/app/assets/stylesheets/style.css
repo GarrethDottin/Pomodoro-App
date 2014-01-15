@@ -6,3 +6,11 @@
 #countdown {
 
 }
+.pomodoro-main-content {
+  background-color: #EDEDED;
+  border-top-right-radius: 2px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  opacity: .85;
+}
