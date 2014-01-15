@@ -1,0 +1,112 @@
+
+.header {
+  width: 15000px;
+  height: 40px;
+  border-bottom: solid grey;
+  border-width: 2px;
+  margin-top: 0px;
+}
+
+.pomodoro-main-content {
+  position: relative;
+  width: 500px ;
+  height: 250px;
+  background-color: grey;
+  margin: auto;
+  top: 10px;
+}
+
+.two-button-switch {
+  position: relative;
+  margin: auto;
+  width: 250px;
+  height: 35px;
+  top: 35px;
+  background-color: white;
+  border-radius: 2px;
+}
+
+#user-input {
+  position: relative;
+  margin: auto;
+  text-align: center;
+  top: 25px;
+}
+
+button {
+  position: relative;
+  margin-left: 63%;
+  top: 40px;
+}
+h3 {
+  position:relative;
+  top: 30px;
+  left: 215px;
+}
+
+.completed {
+/*  display: none;
+*/
+  width: 100px;
+  height: 10px;
+  background-color: grey;
+}
+
+.ui-slider {
+  background: #ebedef;
+  border-radius: 32px;
+  height: 12px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  margin-bottom: 20px;
+  position: relative;
+}
+.ui-slider-handle {
+  background-color: #16a085;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 18px;
+  margin-left: -9px;
+  position: absolute;
+  top: -3px;
+  width: 18px;
+  z-index: 2;
+  -webkit-transition: background 0.25s;
+  transition: background 0.25s;
+}
+.ui-slider-handle[style*='100'] {
+  margin-left: -15px;
+}
+.ui-slider-handle:hover,
+.ui-slider-handle:focus {
+  background-color: #48c9b0;
+  outline: none;
+}
+.ui-slider-handle:active {
+  background-color: #16a085;
+}
+.ui-slider-range {
+  background-color: #1abc9c;
+  border-radius: 30px 0 0 30px;
+  display: block;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+}
+.ui-slider-segment {
+  background-color: #d9dbdd;
+  border-radius: 50%;
+  float: left;
+  height: 6px;
+  margin: 3px -6px 0 0;
+  width: 6px;
+}
+.ui-slider-value {
+  float: right;
+  font-size: 13px;
+  margin-top: 12px;
+}
+.ui-slider-value.first {
+  clear: left;
+  float: left;
+}
