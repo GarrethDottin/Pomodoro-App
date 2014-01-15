@@ -59,8 +59,6 @@ $(function() {
 })
 
 
-
-
 $(function() {
   var id = 10
   $('#start').on("click", function() {

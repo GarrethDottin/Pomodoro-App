@@ -18,13 +18,14 @@ Notes on Design:
 -Pay attention color choices
 Release 1:
 -Get Timer Working COMPLETE
--Get Slider working
+-Get Slider working COMPLETE
 -Allow user to input items and see them come up in the side
 -Style Div
   I. All Pieces in the correct place
   II. Main Div Sytlized
 
-  Steps:
-    I.  Setup Slider
-    II. Setup so Slider Increases when the user says yes
-    II. Style Div
+  Steps: [Setup Slider, Setup so Slider Increases, Style Div]
+    I. Fix Button Display
+    II. Style Timer and Timer Area
+    III. Wireframe and Create Bin Feature
+
