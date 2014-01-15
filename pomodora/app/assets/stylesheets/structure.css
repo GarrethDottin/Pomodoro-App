@@ -7,6 +7,14 @@
   margin-top: 0px;
 }
 
+#countdown {
+  position: relative;
+  top: 50px;
+  left: 220px;
+  font-size: 20px;
+
+}
+
 .pomodoro-main-content {
   position: relative;
   width: 500px ;
@@ -30,13 +38,13 @@
   position: relative;
   margin: auto;
   text-align: center;
-  top: 25px;
+  top: 75px;
 }
 
 button {
   position: relative;
   margin-left: 63%;
-  top: 40px;
+  top: 90px;
 }
 h3 {
   position:relative;
@@ -45,12 +53,10 @@ h3 {
 }
 
 .completed {
-/*  display: none;
-*/
   width: 100px;
   height: 10px;
-  background-color: grey;
 }
+
 
 .ui-slider {
   background: #ebedef;
