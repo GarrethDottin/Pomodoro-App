@@ -16,27 +16,34 @@
 //= require_tree .
 //= require twitter/bootstrap
 
+ var start = $('#start')
+ function hideYesandNo( ) {
+    $('#yes').fadeToggle( "slow", "linear" )
+    $('#no').fadeToggle( "slow", "linear" )
+    start.prop("disabled",false)
+  }
 
 $(function() {
-  var button = $('#start')
-  button.on("click", function() {
+  var start = $('#start')
+  start.on("click", function() {
+    start.prop("disabled",true)
     var useritem = $('#textbox').val()
-    $('#header').hide()
     $('.completed').text(useritem)
     countdown("countdown", 0, 5);
   })
-  function buttonToggle( ) {
-    $('#yes').fadeToggle( "slow", "linear" )
-    $('#no').fadeToggle( "slow", "linear" )
-  }
   function countdown(element, minutes, seconds) {
     var time = minutes*60 + seconds;
+    var countdown = $('#countdown');
     var interval = setInterval(function() {
     var el = document.getElementById(element);
       if(time == -1) {
-        $('#start').fadeToggle( "slow", "linear" )
-        $('#start').css("display", "none")
-        buttonToggle()
+        countdown.fadeOut('slow', function() {
+          countdown.text("Finished?")
+          countdown.fadeIn('slow')
+          $('#start').fadeToggle( "slow", "linear" )
+          $('#start').css("display", "none")
+          hideYesandNo()
+        })
         clearInterval(interval);
         return;
       }
@@ -49,31 +56,44 @@ $(function() {
       time--;
   }, 1000);
 }
-  $('#yes').on("click", function () {
-    buttonToggle()
+  $('#no').on("click", function() {
+    var start = $('#start')
+    hideYesandNo()
     $('#no').css("display", "none")
     $('#yes').css("display", "none")
-    $('#start').fadeToggle( "slow", "linear" )
-    $('#start').css("display", "inline")
+    start.fadeToggle( "slow", "linear" )
+    start.css("display", "inline")
+    start.prop("disabled", false)
+    $('#countdown').text("25:00")
   })
 })
 
 
 $(function() {
   var id = 10
-  $('#start').on("click", function() {
+  start = $('#start')
+  $('#yes').on("click", function() {
+    countdown = $('#countdown')
+    hideYesandNo()
+    $('#no').css("display", "none")
+    $('#yes').css("display", "none")
+    countdown.fadeOut('slow', function() {
+      countdown.text("25:00")
+      countdown.fadeIn('slow');
+      start.css("display", "inline")
+      start.prop("disabled", false)
+    })
     id +=10
-  $('.progressBar').attr("id", "max" + id)
-  function progress(percent, element) {
-    var progressBarWidth = percent * element.width() / 100;
-    element.find('div').animate({ width: progressBarWidth }, 500);
-  }
-  $('.progressBar').each(function() {
-    var bar = $(this);
-    var max = $(this).attr('id');
-    max = max.substring(3);
-    progress(max, bar);
+    $('.progressBar').attr("id", "max" + id)
+    function progress(percent, element) {
+      var progressBarWidth = percent * element.width() / 100;
+      element.find('div').animate({ width: progressBarWidth }, 500);
+    }
+    $('.progressBar').each(function() {
+      var bar = $(this);
+      var max = $(this).attr('id');
+      max = max.substring(3);
+      progress(max, bar);
+    });
   });
-});
-
 })

@@ -1,13 +1,32 @@
 .completed {
   background-color: grey;
-/*  display: none;
-*/}
+}
+
+.button-style {
+  padding: 10px 19px;
+  font-size: 17px;
+  line-height: 1.471;
+  border-radius: 6px;
+  color: #ffffff;
+  background-color: #1abc9c;
+  border: none;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+}
+#yes {
+  background-color: #5D8DD1;
+}
+
+#no {
+  background-color: #5D8DD1;
+}
 
 #countdown {
-
+  font-family: Aller;
+  font-weight: 500;
 }
 .pomodoro-main-content {
-  background-color: #EDEDED;
+  background-color: #f5f5f5;
+  box-shadow: 3px 3px 1px #888888;
   border-top-right-radius: 2px;
   border-top-left-radius: 2px;
   border-bottom-left-radius: 5px;
