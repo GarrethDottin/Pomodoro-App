@@ -23,9 +23,16 @@
     start.prop("disabled",false)
   }
 
+
+
+
 $(function() {
   var start = $('#start')
   start.on("click", function() {
+    $('.completed').css("display", "inline")
+    if ($('.completed').text().length >= 1) {
+        $('.completed').css("display", "inline")
+    }
     start.prop("disabled",true)
     var useritem = $('#textbox').val()
     $('.completed').text(useritem)
@@ -57,6 +64,12 @@ $(function() {
   }, 1000);
 }
   $('#no').on("click", function() {
+    $('.completed').animate({
+    opacity: 0.0,
+    top: "+=200",
+    }, 3000, function() {
+    // Animation complete.
+    });
     var start = $('#start')
     hideYesandNo()
     $('#no').css("display", "none")

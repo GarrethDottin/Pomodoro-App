@@ -1,5 +1,6 @@
 .completed {
   background-color: grey;
+  display: none;
 }
 
 .button-style {
@@ -32,4 +33,23 @@
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   opacity: .85;
+}
+
+#que-title {
+  position: relative;
+  color: white;
+  font-family: Aller;
+  text-decoration:underline;
+  left: 2px;
+  text-align: center;
+}
+#que-footer {
+  position: relative;
+  color: white;
+  font-family: Aller;
+  font-size: 15px;
+  text-decoration:underline;
+  left: 2px;
+  top: 190px;
+  text-align: center;
 }
