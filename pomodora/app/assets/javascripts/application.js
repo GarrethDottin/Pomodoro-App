@@ -16,23 +16,21 @@
 //= require_tree .
 //= require twitter/bootstrap
 
+ var start = $('#start')
+ function hideYesandNo( ) {
+    $('#yes').fadeToggle( "slow", "linear" )
+    $('#no').fadeToggle( "slow", "linear" )
+    start.prop("disabled",false)
+  }
 
 $(function() {
   var start = $('#start')
-  ///clicking start button saving textbox
   start.on("click", function() {
     start.prop("disabled",true)
     var useritem = $('#textbox').val()
     $('.completed').text(useritem)
     countdown("countdown", 0, 5);
   })
-  //toggling yes/no and disabling the start button
-  function buttonToggle( ) {
-    $('#yes').fadeToggle( "slow", "linear" )
-    $('#no').fadeToggle( "slow", "linear" )
-    start.prop("disabled",false)
-  }
-  //counting down
   function countdown(element, minutes, seconds) {
     var time = minutes*60 + seconds;
     var countdown = $('#countdown');
@@ -44,7 +42,7 @@ $(function() {
           countdown.fadeIn('slow')
           $('#start').fadeToggle( "slow", "linear" )
           $('#start').css("display", "none")
-          buttonToggle()
+          hideYesandNo()
         })
         clearInterval(interval);
         return;
@@ -58,28 +56,14 @@ $(function() {
       time--;
   }, 1000);
 }
-  //toggling yes/no and disabling the start button
-  //remove yes and no from screen
-  //
-  $('#yes').on("click", function () {
-    countdown = $('#countdown')
-    buttonToggle()
-    $('#no').css("display", "none")
-    $('#yes').css("display", "none")
-    countdown.fadeOut('slow', function() {
-      countdown.text("25:00")
-      countdown.fadeIn('slow');
-      $('#start').css("display", "inline")
-    })
-  })
-
   $('#no').on("click", function() {
     var start = $('#start')
-    buttonToggle()
+    hideYesandNo()
     $('#no').css("display", "none")
     $('#yes').css("display", "none")
     start.fadeToggle( "slow", "linear" )
     start.css("display", "inline")
+    start.prop("disabled", false)
     $('#countdown').text("25:00")
   })
 })
@@ -87,7 +71,18 @@ $(function() {
 
 $(function() {
   var id = 10
+  start = $('#start')
   $('#yes').on("click", function() {
+    countdown = $('#countdown')
+    hideYesandNo()
+    $('#no').css("display", "none")
+    $('#yes').css("display", "none")
+    countdown.fadeOut('slow', function() {
+      countdown.text("25:00")
+      countdown.fadeIn('slow');
+      start.css("display", "inline")
+      start.prop("disabled", false)
+    })
     id +=10
     $('.progressBar').attr("id", "max" + id)
     function progress(percent, element) {
@@ -100,7 +95,5 @@ $(function() {
       max = max.substring(3);
       progress(max, bar);
     });
-
-});
-
+  });
 })
