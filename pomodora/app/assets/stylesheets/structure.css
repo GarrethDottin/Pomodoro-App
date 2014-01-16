@@ -13,6 +13,18 @@
   left: 220px;
   font-size: 40px;
 }
+.que {
+  height: 242px;
+  top: 5px;
+  width: 102px;
+  background-color: #5D8DD1;
+  position: absolute;
+  left: 395px;
+  border-radius: 3px;
+  -moz-box-shadow:    inset 0 0 10px #5D8DD1;
+  -webkit-box-shadow: inset 0 0 10px #5D8DD1;
+  box-shadow:         inset 0 0 20px #5D8DD1
+}
 
 .pomodoro-main-content {
   position: relative;
@@ -52,6 +64,7 @@ h3 {
 }
 
 .completed {
+  position: relative;
   width: 100px;
   height: 10px;
 }
