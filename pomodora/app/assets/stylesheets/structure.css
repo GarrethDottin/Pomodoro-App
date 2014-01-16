@@ -11,8 +11,7 @@
   position: relative;
   top: 50px;
   left: 220px;
-  font-size: 20px;
-
+  font-size: 40px;
 }
 
 .pomodoro-main-content {
@@ -60,20 +59,20 @@ h3 {
 #yes {
   display: none;
   right: 80px;
-
+  background-color: #5D8DD1;
 }
 
 #no {
   display: none;
   bottom: 40px;
   position: relative;
-  top: 65px;
+  top: 45px;
 }
 .progressBar {
-width: 400px;
-height: 22px;
-border: 1px solid #111;
-background-color: #292929;
+  width: 400px;
+  height: 22px;
+  border: 1px solid #111;
+  background-color: #292929;
 }
 
 .progressBar div {
