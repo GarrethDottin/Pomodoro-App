@@ -18,19 +18,21 @@
 
 
 $(function() {
-  var button = $('#start')
-  button.on("click", function() {
-    button.prop("disabled",true)
+  var start = $('#start')
+  ///clicking start button saving textbox
+  start.on("click", function() {
+    start.prop("disabled",true)
     var useritem = $('#textbox').val()
-    $('#header').hide()
     $('.completed').text(useritem)
     countdown("countdown", 0, 5);
   })
+  //toggling yes/no and disabling the start button
   function buttonToggle( ) {
     $('#yes').fadeToggle( "slow", "linear" )
     $('#no').fadeToggle( "slow", "linear" )
-    button.prop("disabled",false)
+    start.prop("disabled",false)
   }
+  //counting down
   function countdown(element, minutes, seconds) {
     var time = minutes*60 + seconds;
     var countdown = $('#countdown');
@@ -56,25 +58,29 @@ $(function() {
       time--;
   }, 1000);
 }
+  //toggling yes/no and disabling the start button
+  //remove yes and no from screen
+  //
   $('#yes').on("click", function () {
+    countdown = $('#countdown')
     buttonToggle()
     $('#no').css("display", "none")
     $('#yes').css("display", "none")
-    $('#start').fadeToggle( "slow", "linear" )
-    $('#start').css("display", "inline")
-    $('#countdown').fadeOut('slow', function() {
-      $('#countdown').text("25:00")
-      $('#countdown').fadeIn('slow');
+    countdown.fadeOut('slow', function() {
+      countdown.text("25:00")
+      countdown.fadeIn('slow');
+      $('#start').css("display", "inline")
     })
   })
 
   $('#no').on("click", function() {
+    var start = $('#start')
     buttonToggle()
     $('#no').css("display", "none")
     $('#yes').css("display", "none")
-    $('#start').fadeToggle( "slow", "linear" )
-    $('#start').css("display", "inline")
-    $('#countdown').text("25:00?")
+    start.fadeToggle( "slow", "linear" )
+    start.css("display", "inline")
+    $('#countdown').text("25:00")
   })
 })
 
