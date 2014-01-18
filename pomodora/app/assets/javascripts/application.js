@@ -25,17 +25,35 @@
 
 
 
+//function that takes yes or no
+//yes should slide the div to the bottom and keep it there
+//Yes should create a new div at the top
+//no should slide the div to the bottom and then clear it and then slide it to the top
 
+
+function list(yes, no) {
+  if (yes) {
+
+    var topAmount = "+=" + 170
+    $('.completed').animate({
+    top: topAmount,
+    }, 3000, function() {
+    // Animation complete.
+    });
+  }
+  if (no) {
+
+  }
+}
 $(function() {
   var start = $('#start')
   start.on("click", function() {
-    $('.completed').css("display", "inline")
-    if ($('.completed').text().length >= 1) {
-        $('.completed').css("display", "inline")
+    if ($('#textbox').val().length >= 1) {
+      var useritem = $('#textbox').val()
+      $('.completed').text(useritem)
+      $('.completed').css("display", "inline")
     }
     start.prop("disabled",true)
-    var useritem = $('#textbox').val()
-    $('.completed').text(useritem)
     countdown("countdown", 0, 5);
   })
   function countdown(element, minutes, seconds) {
@@ -86,6 +104,7 @@ $(function() {
   var id = 10
   start = $('#start')
   $('#yes').on("click", function() {
+    list(yes)
     countdown = $('#countdown')
     hideYesandNo()
     $('#no').css("display", "none")

@@ -26,6 +26,15 @@ Release 1:
 
   Steps: [Setup Slider, Setup so Slider Increases, Style Div, Fix Button Display, Timer, Timer Area, Wireframe Bin Feature, Align Elements]
     I. Create Bin Feature
+
+Bin Feature
+  I. Freeze Search Bar
+  II. Get Yes feature Working
+  III. No Feature should reset and jump to top
+  IV. Bin Feature should be set (COMPLETE)
+
+Alignment
+  I. Fix Finished so its in a separate div
 Release 2
   I. Center Main Div
   II. Style Bottom Feature
