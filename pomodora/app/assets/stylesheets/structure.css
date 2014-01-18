@@ -10,7 +10,7 @@
 #countdown {
   position: relative;
   top: 50px;
-  left: 220px;
+  left: 160px;
   font-size: 40px;
 }
 .que {
@@ -50,12 +50,13 @@
   margin: auto;
   text-align: center;
   top: 75px;
+  left: 45px;
 }
 
 button {
   position: relative;
-  margin-left: 63%;
   top: 90px;
+  float: right;
 }
 h3 {
   position:relative;
@@ -68,10 +69,13 @@ h3 {
   width: 100px;
   height: 10px;
 }
+#start {
+  width: 200px;
+}
 
 #yes {
   display: none;
-  right: 80px;
+  right: 120px;
   background-color: #5D8DD1;
 }
 
@@ -79,7 +83,8 @@ h3 {
   display: none;
   bottom: 40px;
   position: relative;
-  top: 45px;
+  top: 90px;
+  left: 40px;
 }
 .progressBar {
   width: 400px;
@@ -96,3 +101,7 @@ line-height: 22px; /* same as #progressBar height if we want text middle aligned
 width: 0;
 background-color: #0099ff;
 }
+
+.align-right {
+  width: 300px;
+  }
