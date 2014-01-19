@@ -46,7 +46,7 @@ $(function() {
       var itemNumber = document.createElement("div")
       itemNumber.setAttribute("id", itemNum)
       itemNumber.setAttribute("class", "completed")
-      $('.que').append(itemNumber)
+      $('.list-container').append(itemNumber)
       $('.completed').css("display", "inline")
       var useritem = $('#textbox').val()
       $("#" + itemNum).text(useritem)
@@ -97,7 +97,7 @@ $(function() {
 function list(yes) {
   if (yes) {
     var moveItem = (counter * -20) +25
-    var topAmount = "+=" + (200 + moveItem)
+    var topAmount = "+=" + (180 + moveItem)
     $('#item' + counter).animate({
     top: topAmount,
     }, 3000, function() {

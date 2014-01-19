@@ -105,3 +105,10 @@ background-color: #0099ff;
 .align-right {
   width: 300px;
 }
+
+.list-container {
+  top: 17px;
+  width: 102px;
+  height: 205px;
+  position: absolute;
+}
