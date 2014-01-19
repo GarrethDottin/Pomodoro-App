@@ -18,6 +18,10 @@
 
  var start = $('#start')
  function hideYesandNo( ) {
+  var hit = 0
+
+  console.log("this statement is hit: " + hit)
+  hit++
     $('#yes').fadeToggle( "slow", "linear" )
     $('#no').fadeToggle( "slow", "linear" )
     start.prop("disabled",false)
@@ -31,30 +35,27 @@
 //no should slide the div to the bottom and then clear it and then slide it to the top
 
 
-function list(yes, no) {
-  if (yes) {
 
-    var topAmount = "+=" + 170
-    $('.completed').animate({
-    top: topAmount,
-    }, 3000, function() {
-    // Animation complete.
-    });
-  }
-  if (no) {
-
-  }
-}
 $(function() {
   var start = $('#start')
+  counter = 0
   start.on("click", function() {
     if ($('#textbox').val().length >= 1) {
-      var useritem = $('#textbox').val()
-      $('.completed').text(useritem)
+      counter++
+      var itemNum = "item" + counter
+      var itemNumber = document.createElement("div")
+      itemNumber.setAttribute("id", itemNum)
+      itemNumber.setAttribute("class", "completed")
+      $('.que').append(itemNumber)
       $('.completed').css("display", "inline")
+      var useritem = $('#textbox').val()
+      $("#" + itemNum).text(useritem)
+
+
+
     }
     start.prop("disabled",true)
-    countdown("countdown", 0, 5);
+    countdown("countdown", 0, 2);
   })
   function countdown(element, minutes, seconds) {
     var time = minutes*60 + seconds;
@@ -82,12 +83,7 @@ $(function() {
   }, 1000);
 }
   $('#no').on("click", function() {
-    $('.completed').animate({
-    opacity: 0.0,
-    top: "+=200",
-    }, 3000, function() {
-    // Animation complete.
-    });
+    list()
     var start = $('#start')
     hideYesandNo()
     $('#no').css("display", "none")
@@ -98,7 +94,27 @@ $(function() {
     $('#countdown').text("25:00")
   })
 })
-
+function list(yes) {
+  if (yes) {
+    var moveItem = (counter * -20) +25
+    var topAmount = "+=" + (200 + moveItem)
+    $('#item' + counter).animate({
+    top: topAmount,
+    }, 3000, function() {
+    // Animation complete.
+    });
+  }
+  else {
+    var moveItem = (counter * -20) +25
+    var topAmount = "+=" + (200 + moveItem)
+    $('#item' + counter).animate({
+    opacity: 0.0,
+    top: topAmount,
+    }, 3000, function() {
+    // Animation complete.
+    });
+  }
+}
 
 $(function() {
   var id = 10
@@ -109,6 +125,7 @@ $(function() {
     hideYesandNo()
     $('#no').css("display", "none")
     $('#yes').css("display", "none")
+    console.log("this is hit")
     countdown.fadeOut('slow', function() {
       countdown.text("25:00")
       countdown.fadeIn('slow');

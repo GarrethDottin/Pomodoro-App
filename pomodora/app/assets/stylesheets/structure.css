@@ -65,7 +65,7 @@ h3 {
 }
 
 .completed {
-  position: relative;
+  position: absolute;
   width: 100px;
   height: 10px;
 }
