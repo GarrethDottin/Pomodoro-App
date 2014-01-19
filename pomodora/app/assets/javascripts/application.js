@@ -110,9 +110,7 @@ function list(yes) {
     $('#item' + counter).animate({
     opacity: 0.0,
     top: topAmount,
-    }, 3000, function() {
-    // Animation complete.
-    });
+    }, 3000, function() {});
   }
 }
 
