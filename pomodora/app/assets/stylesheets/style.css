@@ -1,6 +1,14 @@
 .completed {
-  background-color: grey;
+  background-color: #ddcf99;
+  border-color:
   display: none;
+  height: 20px;
+  left: 2px;
+  width: 96px;
+  border-style: solid;
+  border-color: grey;
+  border-width: 1px;
+
 }
 
 .button-style {

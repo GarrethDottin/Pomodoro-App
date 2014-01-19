@@ -16,29 +16,30 @@ Notes on Design:
 -Pay  closer to attention color choices
 
 
-Release 1:
+Release 1: COMPLETE
 -Get Timer Working COMPLETE
 -Get Slider working COMPLETE
--Allow user to input items and see them come up in the side
+-Allow user to input items and see them come up in the side COMPLETE
 -Style Div
   I. All Pieces in the correct place
   II. Main Div Sytlized
 
-  Steps: [Setup Slider, Setup so Slider Increases, Style Div, Fix Button Display, Timer, Timer Area, Wireframe Bin Feature, Align Elements]
-    I. Create Bin Feature
-
-Bin Feature
-  I. Freeze Search Bar
-  II. Get Yes feature Working
-  III. No Feature should reset and jump to top
-  IV. Bin Feature should be set (COMPLETE)
+  Steps: [Setup Slider, Setup so Slider Increases, Style Div, Fix Button Display, Timer, Timer Area, Wireframe Bin Feature, Align Elements, Bin Feature]
+    I. Style Bin Feature
+    II.
 
 Alignment
   I. Fix Finished so its in a separate div
 Release 2
-  I. Center Main Div
-  II. Style Bottom Feature
+  I. Center Main Div COMPLETE
+  II. Bottom Feature
+      A. Style bottom feature
+      B. Fix Bottom Feature
   III. Modularize Code
 
+
+-Different Timer Features
+-Login Feature
+-
 
 
