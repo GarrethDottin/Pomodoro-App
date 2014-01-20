@@ -151,7 +151,7 @@ var NewsFeed = {
         if (counter == NewsFeed.texts.length) {
           counter = 0;
         }
-      },10000)
+      },11000)
     }
   }
 

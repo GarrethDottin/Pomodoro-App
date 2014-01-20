@@ -25,16 +25,15 @@ Release 1: COMPLETE
   II. Main Div Sytlized
 
   Steps: [Setup Slider, Setup so Slider Increases, Style Div, Fix Button Display, Timer, Timer Area, Wireframe Bin Feature, Align Elements, Bin Feature]
-    I. Figure out how to modularize code
-    II.
+    I. Fixes
+    II. Modularize Code
 
-Alignment
-  I. Fix Finished so its in a separate div
+
 Release 2
   I. Center Main Div COMPLETE
-  II. Bottom Feature
-      A. Style bottom feature
-      B. Fix Bottom Feature to display
+  II. Bottom Feature COMPLETE
+      A. Style bottom feature COMPLETE
+      B. Fix Bottom Feature to display COMPLETE
   III. Modularize Code
 
 
