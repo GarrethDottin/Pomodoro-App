@@ -68,6 +68,7 @@ h3 {
   position: absolute;
   width: 100px;
   height: 10px;
+  padding-left: 2px;
 }
 #start {
   width: 200px;
@@ -111,4 +112,9 @@ background-color: #0099ff;
   width: 102px;
   height: 205px;
   position: absolute;
+}
+#que-footer {
+  position: absolute;
+  left: 40px;
+  top: 222px;
 }
