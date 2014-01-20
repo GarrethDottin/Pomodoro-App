@@ -131,3 +131,11 @@ $(function() {
     });
   });
 })
+
+var NewsFeed = {
+  init: function () {
+
+
+  },
+
+}
