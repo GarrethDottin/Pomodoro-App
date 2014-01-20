@@ -139,13 +139,23 @@ var NewsFeed = {
   texts: [["hello world"], ["still sunny"]],
   textdisplay: document.getElementById('newsfeed'),
   displays: function () {
-    for (var x = 0; x < NewsFeed.texts.length; x++) {
-      NewsFeed.textdisplay.innerHTML = NewsFeed.texts[x][0]
-
-      if (x == NewsFeed.texts.length - 1) {
-        x = 0;
-      }
+    var counter = 0
+    var feed = document.getElementById('newsfeed')
+      setInterval(function(){
+        $('#newsfeed').css("display", "none")
+        feed.innerHTML = NewsFeed.texts[counter][0]
+        $('#newsfeed').show( 1000, function() {
+          // Animation complete.
+        });
+        counter++
+        if (counter == NewsFeed.texts.length) {
+          counter = 0;
+        }
+      },10000)
     }
   }
 
-}
+
+$(function (){
+  NewsFeed.init()
+})
