@@ -18,21 +18,11 @@
 
  var start = $('#start')
  function hideYesandNo( ) {
-  var hit = 0
-
-  console.log("this statement is hit: " + hit)
-  hit++
     $('#yes').fadeToggle( "slow", "linear" )
     $('#no').fadeToggle( "slow", "linear" )
     start.prop("disabled",false)
   }
 
-
-
-//function that takes yes or no
-//yes should slide the div to the bottom and keep it there
-//Yes should create a new div at the top
-//no should slide the div to the bottom and then clear it and then slide it to the top
 
 
 
@@ -50,9 +40,6 @@ $(function() {
       $('.completed').css("display", "inline")
       var useritem = $('#textbox').val()
       $("#" + itemNum).text(useritem)
-
-
-
     }
     start.prop("disabled",true)
     countdown("countdown", 0, 2);
@@ -144,3 +131,11 @@ $(function() {
     });
   });
 })
+
+var NewsFeed = {
+  init: function () {
+
+
+  },
+
+}

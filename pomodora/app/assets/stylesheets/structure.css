@@ -1,10 +1,13 @@
-
+body {
+  margin: 0px;
+}
 .header {
-  width: 15000px;
+  width: 100%;
   height: 40px;
   border-bottom: solid grey;
   border-width: 2px;
   margin-top: 0px;
+  margin-left: 0px;
 }
 
 #countdown {
@@ -68,6 +71,7 @@ h3 {
   position: absolute;
   width: 100px;
   height: 10px;
+  padding-left: 2px;
 }
 #start {
   width: 200px;
@@ -87,19 +91,25 @@ h3 {
   left: 40px;
 }
 .progressBar {
-  width: 400px;
-  height: 22px;
-  border: 1px solid #111;
-  background-color: #292929;
+  width: 750px;
+  height: 37px;
+  background-color: #A8B2C0;
+  border-radius: 5px;
+  position: relative;
+  border: 1px solid #000;
+  top: -7px;
+  z-index: 10;
+  left: 10px;
 }
 
 .progressBar div {
-height: 100%;
-color: #fff;
-text-align: right;
-line-height: 22px; /* same as #progressBar height if we want text middle aligned */
-width: 0;
-background-color: #0099ff;
+  height: 100%;
+  color: #fff;
+  text-align: right;
+  line-height: 22px; /* same as #progressBar height if we want text middle aligned */
+  width: 0;
+  background-color: #23C77D;
+  border-radius: 5px;
 }
 
 .align-right {
@@ -111,4 +121,39 @@ background-color: #0099ff;
   width: 102px;
   height: 205px;
   position: absolute;
+}
+#que-footer {
+  position: absolute;
+  left: 40px;
+  top: 222px;
+}
+
+.progress-container {
+  background-color: #222;
+  width: 100%;
+  height: 69px;
+  position: fixed;
+  bottom: 0px;
+  border-top: 2px solid #000;
+  border-bottom: 1px solid #000;
+  -webkit-box-shadow: inset 0 0 1px rgba(255,255,255,0.4);
+  box-shadow: inset 0 0 1px rgba(255,255,255,0.4);
+}
+
+.progress-display {
+  position: relative;
+  left: 780px;
+  width: 250px;
+  height: 38px;
+  bottom: 47px;
+  background-color: #d7bf86;
+  border-radius: 3px;
+  border: 1px solid #000;
+  overflow: hidden;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-backface-visibility: hidden;
 }
