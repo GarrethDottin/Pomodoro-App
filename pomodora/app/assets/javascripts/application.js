@@ -134,8 +134,28 @@ $(function() {
 
 var NewsFeed = {
   init: function () {
-
-
+    NewsFeed.displays()
   },
+  texts: [["hello world"], ["still sunny"]],
+  textdisplay: document.getElementById('newsfeed'),
+  displays: function () {
+    var counter = 0
+    var feed = document.getElementById('newsfeed')
+      setInterval(function(){
+        $('#newsfeed').css("display", "none")
+        feed.innerHTML = NewsFeed.texts[counter][0]
+        $('#newsfeed').show( 1000, function() {
+          // Animation complete.
+        });
+        counter++
+        if (counter == NewsFeed.texts.length) {
+          counter = 0;
+        }
+      },10000)
+    }
+  }
 
-}
+
+$(function (){
+  NewsFeed.init()
+})
