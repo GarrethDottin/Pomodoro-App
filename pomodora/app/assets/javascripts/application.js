@@ -134,8 +134,18 @@ $(function() {
 
 var NewsFeed = {
   init: function () {
-
-
+    NewsFeed.displays()
   },
+  texts: [["hello world"], ["still sunny"]],
+  textdisplay: document.getElementById('newsfeed'),
+  displays: function () {
+    for (var x = 0; x < NewsFeed.texts.length; x++) {
+      NewsFeed.textdisplay.innerHTML = NewsFeed.texts[x][0]
+
+      if (x == NewsFeed.texts.length - 1) {
+        x = 0;
+      }
+    }
+  }
 
 }
