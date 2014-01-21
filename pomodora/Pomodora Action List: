@@ -37,6 +37,13 @@ Release 2
   III. Modularize Code
 
 
+
+-Fix Color Scheme
+   I. Remove Beige
+   II. Change Background  Color
+-Setup Header
+   I. Av club
+- Fix Que Feature
 -Different Timer Features
 -Login Feature
 -Incorporating Handlebars
