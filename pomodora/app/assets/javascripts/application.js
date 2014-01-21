@@ -51,8 +51,8 @@ $(function() {
     var el = document.getElementById(element);
       if(time == -1) {
         countdown.fadeOut('slow', function() {
-          countdown.text("Finished?")
-          countdown.fadeIn('slow')
+          countdown.css("display", "none")
+          $(".finished").css("display", 'inline')
           $('#start').fadeToggle( "slow", "linear" )
           $('#start').css("display", "none")
           hideYesandNo()
@@ -73,12 +73,16 @@ $(function() {
     list()
     var start = $('#start')
     hideYesandNo()
+    $('.finished').fadeOut('slow', function() {
+      $('.finished').css("display", "none")
+      $('#countdown').css("display", "inline")
+    })
     $('#no').css("display", "none")
     $('#yes').css("display", "none")
     start.fadeToggle( "slow", "linear" )
     start.css("display", "inline")
     start.prop("disabled", false)
-    $('#countdown').text("25:00")
+
   })
 })
 function list(yes) {
@@ -110,12 +114,12 @@ $(function() {
     hideYesandNo()
     $('#no').css("display", "none")
     $('#yes').css("display", "none")
-    console.log("this is hit")
-    countdown.fadeOut('slow', function() {
-      countdown.text("25:00")
-      countdown.fadeIn('slow');
+    $('.finished').fadeOut('slow', function() {
+      $('.finished').css("display", "none")
+      $('#countdown').css("display", "inline")
       start.css("display", "inline")
       start.prop("disabled", false)
+    })
     })
     id +=10
     $('.progressBar').attr("id", "max" + id)
@@ -144,7 +148,7 @@ var NewsFeed = {
       setInterval(function(){
         $('#newsfeed').css("display", "none")
         feed.innerHTML = NewsFeed.texts[counter][0]
-        $('#newsfeed').show( 1000, function() {
+        $('#newsfeed').show( 1500, function() {
           // Animation complete.
         });
         counter++
@@ -154,7 +158,6 @@ var NewsFeed = {
       },11000)
     }
   }
-
 
 $(function (){
   NewsFeed.init()

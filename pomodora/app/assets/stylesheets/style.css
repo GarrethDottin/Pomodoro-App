@@ -5,10 +5,7 @@
   height: 20px;
   left: 2px;
   width: 96px;
-  border-style: solid;
-  border-color: grey;
-  border-width: 1px;
-
+  border-radius: 1.5px;
 }
 
 .button-style {
@@ -22,11 +19,11 @@
   font-family: "Lato", Helvetica, Arial, sans-serif;
 }
 #yes {
-  background-color: #5D8DD1;
+  background-color: #23C77D;
 }
 
 #no {
-  background-color: #5D8DD1;
+  background-color: #C74352;;
 }
 
 #countdown {
