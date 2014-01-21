@@ -102,35 +102,35 @@ function list(yes) {
 
 
 $(function() {
-  var id = 10
-  start = $('#start')
-  $('#yes').on("click", function() {
-    list(yes)
-    countdown = $('#countdown')
-    hideYesandNo()
-    $('#no').css("display", "none")
-    $('#yes').css("display", "none")
-    $('.finished').fadeOut('slow', function() {
-      console.log("this is hit")
-      $('.finished').css("display", "none")
-      $('#countdown').text("25:00");
-      $('#countdown').css("display", "inline")
-      start.css("display", "inline")
-      start.prop("disabled", false)
-    })
-    id +=10
-    $('.progressBar').attr("id", "max" + id)
-    function progress(percent, element) {
-      var progressBarWidth = percent * element.width() / 100;
-      element.find('div').animate({ width: progressBarWidth }, 500);
-    }
-    $('.progressBar').each(function() {
-      var bar = $(this);
-      var max = $(this).attr('id');
-      max = max.substring(3);
-      progress(max, bar);
-    });
-  });
+  // var id = 10
+  // start = $('#start')
+  // $('#yes').on("click", function() {
+  //   list(yes)
+  //   countdown = $('#countdown')
+  //   hideYesandNo()
+  //   $('#no').css("display", "none")
+  //   $('#yes').css("display", "none")
+  //   $('.finished').fadeOut('slow', function() {
+  //     console.log("this is hit")
+  //     $('.finished').css("display", "none")
+  //     $('#countdown').text("25:00");
+  //     $('#countdown').css("display", "inline")
+  //     start.css("display", "inline")
+  //     start.prop("disabled", false)
+  //   })
+  //   id +=10
+  //   $('.progressBar').attr("id", "max" + id)
+  //   function progress(percent, element) {
+  //     var progressBarWidth = percent * element.width() / 100;
+  //     element.find('div').animate({ width: progressBarWidth }, 500);
+  //   }
+  //   $('.progressBar').each(function() {
+  //     var bar = $(this);
+  //     var max = $(this).attr('id');
+  //     max = max.substring(3);
+  //     progress(max, bar);
+  //   });
+  // });
 })
 
 
@@ -141,6 +141,7 @@ function Buttons(){
 }
 
 var buttonClicked = (function (button) {
+  var id = 0;
   var list = function list(yes) {
     if (yes) {
       var moveItem = (counter * -20) +25
@@ -171,9 +172,41 @@ var buttonClicked = (function (button) {
     button.starts.css("display", "inline")
     button.starts.prop("disabled", false)
   };
+  var yesButton = function(event, button) {
+    list(yes)
+    countdown = $('#countdown')
+    hideYesandNo()
+    $('#no').css("display", "none")
+    $('#yes').css("display", "none")
+    $('.finished').fadeOut('slow', function() {
+      $('.finished').css("display", "none")
+      $('#countdown').text("25:00");
+      $('#countdown').css("display", "inline")
+      button.starts.css("display", "inline")
+      button.starts.prop("disabled", false)
+    })
+    id +=10
+    $('.progressBar').attr("id", "max" + id)
+    function progress(percent, element) {
+      var progressBarWidth = percent * element.width() / 100;
+      element.find('div').animate({ width: progressBarWidth }, 500);
+    }
+    $('.progressBar').each(function() {
+      var bar = $(this);
+      var max = $(this).attr('id');
+      max = max.substring(3);
+      progress(max, bar);
+    });
+
+  }
+
+
   var bindFunctions = function (button) {
     button.no.on("click",  function (event) {
       noButton(event, button);
+    })
+    button.yes.on("click",  function (event) {
+      yesButton(event, button);
     })
   };
 
@@ -210,7 +243,6 @@ var NewsFeed = {
       },11000)
     }
   }
-
 
 $(function (){
   NewsFeed.init()
