@@ -23,11 +23,12 @@
     start.prop("disabled",false)
   }
 
-$(function() {
-  var start = $('#start');
-  counter = 0
-  start.on("click", function() {
+
+var startClicked = (function (button) {
+  var counter = 0;
+  var startButton = function (event, button){
     if ($('#textbox').val().length >= 1) {
+      console.log("counter: " + counter)
       counter++
       var itemNum = "item" + counter
       var itemNumber = document.createElement("div")
@@ -40,8 +41,8 @@ $(function() {
     }
     start.prop("disabled",true)
     countdown("countdown", 0, 2);
-  })
-  function countdown(element, minutes, seconds) {
+  };
+  var countdown = function (element, minutes, seconds) {
     var time = minutes*60 + seconds;
     var countdown = $('#countdown');
     var interval = setInterval(function() {
@@ -64,8 +65,70 @@ $(function() {
       var text = minutes + ':' + seconds;
       el.innerHTML = text;
       time--;
-  }, 1000);
-}
+    }, 1000);
+  };
+
+  var bindFunctions = function (button) {
+    button.starts.on("click", function (event){
+      startButton(event, button);
+    })
+  };
+
+  var init = function () {
+    var button = new Buttons();
+    bindFunctions(button);
+  }
+
+  return {
+    init: init,
+    startClicked: startClicked
+  }
+}) ();
+
+
+$(function() {
+  var start = $('#start');
+  counter = 0
+  // start.on("click", function() {
+  //   if ($('#textbox').val().length >= 1) {
+  //     counter++
+  //     var itemNum = "item" + counter
+  //     var itemNumber = document.createElement("div")
+  //     itemNumber.setAttribute("id", itemNum)
+  //     itemNumber.setAttribute("class", "completed")
+  //     $('.list-container').append(itemNumber)
+  //     $('.completed').css("display", "inline")
+  //     var useritem = $('#textbox').val()
+  //     $("#" + itemNum).text(useritem)
+  //   }
+  //   start.prop("disabled",true)
+  //   countdown("countdown", 0, 2);
+  // })
+  // function countdown(element, minutes, seconds) {
+  //   var time = minutes*60 + seconds;
+  //   var countdown = $('#countdown');
+  //   var interval = setInterval(function() {
+  //   var el = document.getElementById(element);
+  //     if(time == -1) {
+  //       countdown.fadeOut('slow', function() {
+  //         countdown.css("display", "none")
+  //         $(".finished").css("display", 'inline')
+  //         $('#start').fadeToggle( "slow", "linear" )
+  //         $('#start').css("display", "none")
+  //         hideYesandNo()
+  //       })
+  //       clearInterval(interval);
+  //       return;
+  //     }
+  //     var minutes = Math.floor( time / 60 );
+  //     if (minutes < 10) minutes = "0" + minutes;
+  //     var seconds = time % 60;
+  //     if (seconds < 10) seconds = "0" + seconds;
+  //     var text = minutes + ':' + seconds;
+  //     el.innerHTML = text;
+  //     time--;
+  // }, 1000);
+// }
   // $('#no').on("click", function() {
   //   list()
   //   var start = $('#start')
@@ -81,27 +144,27 @@ $(function() {
   //   start.prop("disabled", false)
   // })
 })
-function list(yes) {
-  if (yes) {
-    var moveItem = (counter * -20) +25
-    var topAmount = "+=" + (180 + moveItem)
-    $('#item' + counter).animate({
-    top: topAmount,
-    }, 3000, function() {});
-  }
-  else {
-    var moveItem = (counter * -20) +25
-    var topAmount = "+=" + (200 + moveItem)
-    $('#item' + counter).animate({
-    opacity: 0.0,
-    top: topAmount,
-    }, 3000, function() {});
-  }
-}
+// function list(yes) {
+//   if (yes) {
+//     var moveItem = (counter * -20) +25
+//     var topAmount = "+=" + (180 + moveItem)
+//     $('#item' + counter).animate({
+//     top: topAmount,
+//     }, 3000, function() {});
+//   }
+//   else {
+//     var moveItem = (counter * -20) +25
+//     var topAmount = "+=" + (200 + moveItem)
+//     $('#item' + counter).animate({
+//     opacity: 0.0,
+//     top: topAmount,
+//     }, 3000, function() {});
+//   }
+// }
 
 
 
-$(function() {
+// $(function() {
   // var id = 10
   // start = $('#start')
   // $('#yes').on("click", function() {
@@ -131,7 +194,7 @@ $(function() {
   //     progress(max, bar);
   //   });
   // });
-})
+// })
 
 
 function Buttons(){
@@ -197,9 +260,7 @@ var buttonClicked = (function (button) {
       max = max.substring(3);
       progress(max, bar);
     });
-
   }
-
 
   var bindFunctions = function (button) {
     button.no.on("click",  function (event) {
@@ -245,6 +306,7 @@ var NewsFeed = {
   }
 
 $(function (){
+  startClicked.init()
   NewsFeed.init()
   buttonClicked.init()
 })
