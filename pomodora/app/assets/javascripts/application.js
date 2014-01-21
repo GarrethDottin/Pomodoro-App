@@ -23,11 +23,8 @@
     start.prop("disabled",false)
   }
 
-
-
-
 $(function() {
-  var start = $('#start')
+  var start = $('#start');
   counter = 0
   start.on("click", function() {
     if ($('#textbox').val().length >= 1) {
@@ -69,20 +66,20 @@ $(function() {
       time--;
   }, 1000);
 }
-  $('#no').on("click", function() {
-    list()
-    var start = $('#start')
-    hideYesandNo()
-    $('.finished').fadeOut('slow', function() {
-      $('.finished').css("display", "none")
-      $('#countdown').css("display", "inline")
-    })
-    $('#no').css("display", "none")
-    $('#yes').css("display", "none")
-    start.fadeToggle( "slow", "linear" )
-    start.css("display", "inline")
-    start.prop("disabled", false)
-  })
+  // $('#no').on("click", function() {
+  //   list()
+  //   var start = $('#start')
+  //   hideYesandNo()
+  //   $('.finished').fadeOut('slow', function() {
+  //     $('.finished').css("display", "none")
+  //     $('#countdown').css("display", "inline")
+  //   })
+  //   $('#no').css("display", "none")
+  //   $('#yes').css("display", "none")
+  //   start.fadeToggle( "slow", "linear" )
+  //   start.css("display", "inline")
+  //   start.prop("disabled", false)
+  // })
 })
 function list(yes) {
   if (yes) {
@@ -90,9 +87,7 @@ function list(yes) {
     var topAmount = "+=" + (180 + moveItem)
     $('#item' + counter).animate({
     top: topAmount,
-    }, 3000, function() {
-    // Animation complete.
-    });
+    }, 3000, function() {});
   }
   else {
     var moveItem = (counter * -20) +25
@@ -103,6 +98,8 @@ function list(yes) {
     }, 3000, function() {});
   }
 }
+
+
 
 $(function() {
   var id = 10
@@ -136,6 +133,61 @@ $(function() {
   });
 })
 
+
+function Buttons(){
+  this.no = $('#no');
+  this.yes = $('#yes');
+  this.starts = $('#start');
+}
+
+var buttonClicked = (function (button) {
+  var list = function list(yes) {
+    if (yes) {
+      var moveItem = (counter * -20) +25
+      var topAmount = "+=" + (180 + moveItem)
+      $('#item' + counter).animate({
+      top: topAmount,
+      }, 3000, function() {});
+    }
+    else {
+      var moveItem = (counter * -20) +25
+      var topAmount = "+=" + (200 + moveItem)
+      $('#item' + counter).animate({
+      opacity: 0.0,
+      top: topAmount,
+      }, 3000, function() {});
+    }
+  }
+  var noButton = function(event, button) {
+    list()
+    hideYesandNo()
+    $('.finished').fadeOut('slow', function() {
+      $('.finished').css("display", "none")
+      $('#countdown').css("display", "inline")
+    })
+    button.no.css("display", "none")
+    button.yes.css("display", "none")
+    button.starts.fadeToggle( "slow", "linear" )
+    button.starts.css("display", "inline")
+    button.starts.prop("disabled", false)
+  };
+  var bindFunctions = function (button) {
+    button.no.on("click",  function (event) {
+      noButton(event, button);
+    })
+  };
+
+  var init = function () {
+    var button = new Buttons();
+    bindFunctions(button);
+  };
+
+  return {
+    noButton: noButton,
+    init: init
+  }
+}) ();
+
 var NewsFeed = {
   init: function () {
     NewsFeed.displays()
@@ -143,22 +195,24 @@ var NewsFeed = {
   texts: [["hello world"], ["still sunny"]],
   textdisplay: document.getElementById('newsfeed'),
   displays: function () {
-    var counter = 0
+    var counterDisplay = 0
     var feed = document.getElementById('newsfeed')
       setInterval(function(){
         $('#newsfeed').css("display", "none")
-        feed.innerHTML = NewsFeed.texts[counter][0]
+        feed.innerHTML = NewsFeed.texts[counterDisplay][0]
         $('#newsfeed').show( 1500, function() {
           // Animation complete.
         });
-        counter++
-        if (counter == NewsFeed.texts.length) {
-          counter = 0;
+        counterDisplay++
+        if (counterDisplay == NewsFeed.texts.length) {
+          counterDisplay = 0;
         }
       },11000)
     }
   }
 
+
 $(function (){
   NewsFeed.init()
+  buttonClicked.init()
 })
