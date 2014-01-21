@@ -82,7 +82,6 @@ $(function() {
     start.fadeToggle( "slow", "linear" )
     start.css("display", "inline")
     start.prop("disabled", false)
-
   })
 })
 function list(yes) {
@@ -115,11 +114,12 @@ $(function() {
     $('#no').css("display", "none")
     $('#yes').css("display", "none")
     $('.finished').fadeOut('slow', function() {
+      console.log("this is hit")
       $('.finished').css("display", "none")
+      $('#countdown').text("25:00");
       $('#countdown').css("display", "inline")
       start.css("display", "inline")
       start.prop("disabled", false)
-    })
     })
     id +=10
     $('.progressBar').attr("id", "max" + id)
