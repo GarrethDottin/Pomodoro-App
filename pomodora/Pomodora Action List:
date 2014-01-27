@@ -29,14 +29,28 @@ Release 1: COMPLETE
     II. Modularize Code
 
 
-Release 2
+Release 2 COMPLETE
   I. Center Main Div COMPLETE
   II. Bottom Feature COMPLETE
       A. Style bottom feature COMPLETE
       B. Fix Bottom Feature to display COMPLETE
-  III. Modularize Code
+  III. Modularize Code COMPLETE
+
+Release 3
+  I. Touch up Feature Bar
+     A. Color
+     B. Handlebars
+     C. Social Updates
+  II. Modularize
+     A. OO CSS Presentation
+     B. OO CSS Implementation
+     C. Javascript Design Patter
+  III. Change Header
+     A.
 
 
+-Heroku
+-Que Feature
 
 -Fix Color Scheme
    I. Remove Beige
