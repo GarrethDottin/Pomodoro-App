@@ -49,6 +49,11 @@ Release 3
      A. Add Buttons COM
      B. Stylize it COM
 
+Steps:
+-separate selectors of structure and skin
+-get code working
+-modularize code
+-handlebars
 
 Release 4 and 5
 -Different Timers
@@ -58,10 +63,7 @@ Release 4 and 5
 -Push to Heroku
 -Feedback
 -Sign in Form after two Pomodoras
-Steps:
-1. Add Icon COmplete
-2. Add Buttons
-3. Review Video on OO
+
 
 OO Refactoring
 1. Separate Classes from Structure and Style
