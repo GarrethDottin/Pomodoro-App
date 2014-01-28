@@ -14,13 +14,44 @@ body {
     -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
+
+.menu-items {
+  position: relative;
+  left: 800px;
+  top: 26px;
+  width: 10%;
+  width: 140px;
+  height: 30px;
+  bottom: 45px;
+  border-radius: 2px;
+  background-color: #5D8DD1;
+  opacity: .7;
+}
+
+#about {
+  left: 960px;
+  top: -4px;
+  width: 60px;
+}
+
+#about-title {
+  top: -22px;
+}
+.que-title {
+  position: relative;
+  bottom: 53px;
+  text-align: center;
+  color: white;
+  margin: 0px;
+}
+
 h1 {
   font-size: 58.5px;
-  position: absolute;
-  left: 100px;
+  float: left;
   bottom: 5px;
   font-family: 'Marck Script', cursive;
   color: #5D8DD1;
+  margin-left: 190px;
 }
 
 .icon {

@@ -11,6 +11,7 @@ body {
   border-radius: 1.5px;
 }
 
+
 .button-style {
   padding: 10px 19px;
   font-size: 17px;
@@ -42,6 +43,8 @@ body {
   border-bottom-right-radius: 5px;
   opacity: .85;
 }
+
+
 
 #que-title {
   position: relative;

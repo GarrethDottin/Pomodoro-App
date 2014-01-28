@@ -38,9 +38,9 @@ Release 2 COMPLETE
 
 Release 3
   I. Touch up Feature Bar
-     A. Color
+     A. Color COMPLETE
      B. Handlebars
-     C. Social Updates
+     C. Social Updates INC
   II. Modularize
      A. OO CSS Presentation
      B. OO CSS Implementation
@@ -49,8 +49,17 @@ Release 3
      A. Add Buttons
      B. Stylize it COM
 
+
+Release 4 and 5
+-Different Timers
+-Fix Que Feature
+-About Me
+-What is Pomodora
+-Push to Heroku
+-Feedback
+-Sign in Form after two Pomodoras
 Steps:
-1. Add Icon
+1. Add Icon COmplete
 2. Add Buttons
 3. Review Video on OO
 
@@ -59,17 +68,5 @@ Steps:
 6.55-7.05 Add Items to list
 
 
--Heroku
--Que Feature
-
--Fix Color Scheme
-   I. Remove Beige
-   II. Change Background  Color
--Setup Header
-   I. Av club
-- Fix Que Feature
--Different Timer Features
--Login Feature
--Incorporating Handlebars
 
 
