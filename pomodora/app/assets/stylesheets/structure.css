@@ -80,6 +80,7 @@ h1 {
   left: 45px;
 }
 
+
 .finished {
   position: relative;
   top: 50px;
@@ -173,13 +174,18 @@ h3 {
   box-shadow: inset 0 0 1px rgba(255,255,255,0.4);
 }
 
+#image-icon {
+  width: 40px;
+  border-right: 1px solid #000;
+  height: 50px;
+}
+
 .progress-display {
   position: relative;
   left: 780px;
   width: 250px;
   height: 38px;
   bottom: 47px;
-  background-color: #d7bf86;
   border-radius: 3px;
   border: 1px solid #000;
   overflow: hidden;
@@ -189,4 +195,11 @@ h3 {
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
   -webkit-backface-visibility: hidden;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.08),inset 1px 1px rgba(255,255,255,0.06);
+  background-color: #333;}
+
+#newsfeed {
+  position: relative;
+  left: 48px;
+  bottom: 40px;
 }

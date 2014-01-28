@@ -175,7 +175,7 @@ var NewsFeed = {
   init: function () {
     NewsFeed.displays()
   },
-  texts: [["hello world"], ["still sunny"]],
+  texts: [["Jenna ~ Read two chapters"], ["Mary ~ Write a Cover Letter"], ["Dave ~ Practice Designing"], ["Alex ~ Outline Blog Post"],["Jamie ~ finish reading the news"]],
   textdisplay: document.getElementById('newsfeed'),
   displays: function () {
     var counterDisplay = 0
@@ -183,9 +183,7 @@ var NewsFeed = {
       setInterval(function(){
         $('#newsfeed').css("display", "none")
         feed.innerHTML = NewsFeed.texts[counterDisplay][0]
-        $('#newsfeed').show( 1500, function() {
-          // Animation complete.
-        });
+        $('#newsfeed').show( 1500, function() {});
         counterDisplay++
         if (counterDisplay == NewsFeed.texts.length) {
           counterDisplay = 0;
