@@ -45,8 +45,8 @@ Release 3
      A. OO CSS Presentation
      B. OO CSS Implementation
      C. Javascript Design Pattern
-  III. Change Header
-     A. Add Buttons
+  III. Change Header COM
+     A. Add Buttons COM
      B. Stylize it COM
 
 
@@ -63,9 +63,9 @@ Steps:
 2. Add Buttons
 3. Review Video on OO
 
-
-6.45-6.55 Fix Font
-6.55-7.05 Add Items to list
+OO Refactoring
+1. Separate Classes from Structure and Style
+2.
 
 
 
