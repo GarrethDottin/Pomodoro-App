@@ -58,6 +58,11 @@ body {
   text-decoration:underline;
   text-align: center;
 }
+#newsfeed {
+  color: white;
+
+}
+
 .title {
   color: white;
   margin-left: 7px;
