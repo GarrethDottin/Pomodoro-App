@@ -115,28 +115,39 @@ function switchButtonDisplay() {
 };
 
 
-function list (yes)
 var buttonClicked = (function (button) {
   var id = 0;
-  var list = function list(yes) {
+  var queFeature = function queFeature(yes, opacityLevel) {
     if (yes) {
-      var moveItem = (counter * -20) +25
-      var topAmount = "+=" + (180 + moveItem)
-      $('#item' + counter).animate({
-      top: topAmount,
-      }, 3000, function() {});
+      var opacityAmount = 1.0
+      queFeature(opacityAmount)
+      // var moveItem = (counter * -20) +25
+      // var topAmount = "+=" + (180 + moveItem)
+      // $('#item' + counter).animate({
+      // top: topAmount,
+      // }, 3000, function() {});
     }
     else {
-      var moveItem = (counter * -20) +25
-      var topAmount = "+=" + (200 + moveItem)
-      $('#item' + counter).animate({
-      opacity: 0.0,
-      top: topAmount,
-      }, 3000, function() {});
+      var opacityAmount = 0.0
+      queFeature(opacityAmount)
+      // var moveItem = (counter * -20) +25
+      // var topAmount = "+=" + (200 + moveItem)
+      // $('#item' + counter).animate({
+      // opacity: 0.0,
+      // top: topAmount,
+      // }, 3000, function() {});
     };
   };
+  var queFeature = function (opacityLevel) {
+    var moveItem = (counter * -20) +25
+    var topAmount = "+=" + (180 + moveItem)
+    $('#item' + counter).animate({
+    top: topAmount,
+    opacity: opacityLevel,
+    }, 3000, function() {});
+  }
   var noButton = function(event, button) {
-    list();
+    queFeature();
     hideYesandNo();
     switchButtonDisplay();
   };
