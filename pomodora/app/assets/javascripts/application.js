@@ -101,7 +101,7 @@ function Buttons(){
 };
 
 
-function switchButtonDisplay() {
+function showStartHideYesNo() {
   var button = new Buttons();
   $('.finished').fadeOut('slow', function() {
       $('.finished').css("display", "none")
@@ -113,48 +113,37 @@ function switchButtonDisplay() {
   button.starts.css("display", "inline")
   button.starts.prop("disabled", false)
 };
-
-
 var buttonClicked = (function (button) {
   var id = 0;
   var queFeature = function queFeature(yes, opacityLevel) {
     if (yes) {
       var opacityAmount = 1.0
-      queFeature(opacityAmount)
-      // var moveItem = (counter * -20) +25
-      // var topAmount = "+=" + (180 + moveItem)
-      // $('#item' + counter).animate({
-      // top: topAmount,
-      // }, 3000, function() {});
+      opacitySetting(1)
     }
     else {
       var opacityAmount = 0.0
-      queFeature(opacityAmount)
-      // var moveItem = (counter * -20) +25
-      // var topAmount = "+=" + (200 + moveItem)
-      // $('#item' + counter).animate({
-      // opacity: 0.0,
-      // top: topAmount,
-      // }, 3000, function() {});
+      opacitySetting(0)
     };
   };
-  var queFeature = function (opacityLevel) {
+
+  var opacitySetting = function (opacityAmount) {
+    console.log(opacityAmount)
     var moveItem = (counter * -20) +25
     var topAmount = "+=" + (180 + moveItem)
     $('#item' + counter).animate({
     top: topAmount,
-    opacity: opacityLevel,
+    opacity: opacityAmount,
     }, 3000, function() {});
-  }
+};
   var noButton = function(event, button) {
     queFeature();
     hideYesandNo();
-    switchButtonDisplay();
+    showStartHideYesNo();
   };
   var yesButton = function(event, button) {
-    list(yes)
+    queFeature(yes)
     hideYesandNo();
-    switchButtonDisplay()
+    showStartHideYesNo()
     id +=10
     $('.progressBar').attr("id", "max" + id)
     function progress(percent, element) {
