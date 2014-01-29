@@ -17,8 +17,7 @@ body {
 h1 {
   font-size: 58.5px;
   position: absolute;
-  left: 100px;
-  bottom: 5px;
+  left: 190px;
   font-family: 'Marck Script', cursive;
   color: #5D8DD1;
 }
@@ -141,30 +140,39 @@ h3 {
   top: 222px;
 }
 
-.progress-container {
-  background-color: #222;
+.footer-container {
   width: 100%;
   height: 69px;
   position: fixed;
   bottom: 0px;
+}
+
+.black-footer-styling {
+  background-color: #222;
   border-top: 2px solid #000;
   border-bottom: 1px solid #000;
   -webkit-box-shadow: inset 0 0 1px rgba(255,255,255,0.4);
   box-shadow: inset 0 0 1px rgba(255,255,255,0.4);
 }
+
+
 .progressBar {
   width: 65%;
   height: 37px;
-  background-color: #A8B2C0;
   border-radius: 5px;
   border: 1px solid #000;
+}
+
+
+.progressBar-styling {
+  background-color: #A8B2C0;
   top: -7px;
   z-index: 10;
   float: left;
   margin-left: 10px;
   margin-right: 10px;
-}
 
+}
 .progressBar div {
   height: 100%;
   color: #fff;
@@ -180,6 +188,18 @@ h3 {
   width: 40px;
   border-right: 1px solid #000;
   height: 50px;
+}
+
+.menu-item1 {
+  position: relative;
+  left: 800px;
+  top: 30px;
+  color: #010259;
+}
+
+#about {
+  left: 968px;
+  top: 0px;
 }
 
 
@@ -204,6 +224,20 @@ h3 {
   float: left;
   margin-left: 10px;
 }
+.progress-display-styling{
+  border: 1px solid #000;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-backface-visibility: hidden;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.08),inset 1px 1px rgba(255,255,255,0.06);
+  background-color: #333;
+  float: left;
+  margin-left: 10px;
+}
+
 
 #newsfeed {
   position: relative;
