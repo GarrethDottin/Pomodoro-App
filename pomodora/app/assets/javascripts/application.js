@@ -20,20 +20,19 @@
 //Notes for Optimization
 //Put the counter in a global variable
 //Fix Bug with clicking start button twice
+
 var start = $('#start')
-function hideYesandNo( ) {
-    $('#yes').fadeToggle( "slow", "linear" )
-    $('#no').fadeToggle( "slow", "linear" )
-    start.prop("disabled",false)
-  }
+function hideYesandNo() {
+    $('#yes').fadeToggle( "slow", "linear" );
+    $('#no').fadeToggle( "slow", "linear" );
+    start.prop("disabled",false);
+};
 
 var startClicked = (function (button) {
   counter = 0;
   var startButton = function (event, button){
     if ($('#textbox').val().length >= 1) {
-      console.log("counter: " + counter)
       counter++
-      console.log("counter: " + counter)
       var itemNum = "item" + counter
       var itemNumber = document.createElement("div")
       itemNumber.setAttribute("id", itemNum)
@@ -86,7 +85,7 @@ var startClicked = (function (button) {
   var init = function () {
     var button = new Buttons();
     bindFunctions(button);
-  }
+  };
 
   return {
     init: init,
@@ -99,8 +98,24 @@ function Buttons(){
   this.no = $('#no');
   this.yes = $('#yes');
   this.starts = $('#start');
-}
+};
 
+
+function switchButtonDisplay() {
+  var button = new Buttons();
+  $('.finished').fadeOut('slow', function() {
+      $('.finished').css("display", "none")
+      $('#countdown').css("display", "inline-block")
+    })
+  button.no.css("display", "none")
+  button.yes.css("display", "none")
+  button.starts.fadeToggle( "slow", "linear" )
+  button.starts.css("display", "inline")
+  button.starts.prop("disabled", false)
+};
+
+
+function list (yes)
 var buttonClicked = (function (button) {
   var id = 0;
   var list = function list(yes) {
@@ -118,34 +133,17 @@ var buttonClicked = (function (button) {
       opacity: 0.0,
       top: topAmount,
       }, 3000, function() {});
-    }
-  }
+    };
+  };
   var noButton = function(event, button) {
-    list()
-    hideYesandNo()
-    $('.finished').fadeOut('slow', function() {
-      $('.finished').css("display", "none")
-      $('#countdown').css("display", "inline-block")
-    })
-    button.no.css("display", "none")
-    button.yes.css("display", "none")
-    button.starts.fadeToggle( "slow", "linear" )
-    button.starts.css("display", "inline")
-    button.starts.prop("disabled", false)
+    list();
+    hideYesandNo();
+    switchButtonDisplay();
   };
   var yesButton = function(event, button) {
     list(yes)
-    countdown = $('#countdown')
     hideYesandNo();
-    $('#no').css("display", "none")
-    $('#yes').css("display", "none")
-    $('.finished').fadeOut('slow', function() {
-      $('.finished').css("display", "none")
-      countdown.text("25:00");
-      countdown.css("display", "inline")
-      button.starts.css("display", "inline")
-      button.starts.prop("disabled", false)
-    })
+    switchButtonDisplay()
     id +=10
     $('.progressBar').attr("id", "max" + id)
     function progress(percent, element) {
@@ -170,7 +168,6 @@ var buttonClicked = (function (button) {
   };
 
   var init = function () {
-    console.log("2nd")
     var button = new Buttons();
     bindFunctions(button);
   };
@@ -203,7 +200,6 @@ var NewsFeed = {
   }
 
 $(function (){
-  console.log("1st")
   startClicked.init()
   NewsFeed.init()
   buttonClicked.init()
