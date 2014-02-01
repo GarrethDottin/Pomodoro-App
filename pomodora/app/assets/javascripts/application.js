@@ -21,8 +21,8 @@
 //Put the counter in a global variable
 //Fix Bug with clicking start button twice
 
-var start = $('#start')
 function hideYesandNo() {
+    var start = $('#start')
     $('#yes').fadeToggle( "slow", "linear" );
     $('#no').fadeToggle( "slow", "linear" );
     start.prop("disabled",false);
@@ -30,20 +30,23 @@ function hideYesandNo() {
 
 var startClicked = (function (button) {
   counter = 0;
-  var startButton = function (event, button){
+  var triggerCountdown = function (event, button){
     if ($('#textbox').val().length >= 1) {
       counter++
-      var itemNum = "item" + counter
-      var itemNumber = document.createElement("div")
-      itemNumber.setAttribute("id", itemNum)
-      itemNumber.setAttribute("class", "completed")
-      $('.list-container').append(itemNumber)
-      $('.completed').css("display", "inline")
-      var useritem = $('#textbox').val()
-      $("#" + itemNum).text(useritem)
+      createTodoItem(counter)
     }
-    start.prop("disabled",true)
+    button.starts.prop("disabled",true)
     countdown("countdown", 0, 4);
+  };
+  var createTodoItem = function (counter) {
+    var itemNum = "item" + counter
+    var itemNumber = document.createElement("div")
+    itemNumber.setAttribute("id", itemNum)
+    itemNumber.setAttribute("class", "completed")
+    $('.list-container').append(itemNumber)
+    $('.completed').css("display", "inline")
+    var useritem = $('#textbox').val()
+    $("#" + itemNum).text(useritem)
   };
   var countdown = function (element, minutes, seconds) {
     console.log("what is is this" + element)
@@ -78,7 +81,7 @@ var startClicked = (function (button) {
 
   var bindFunctions = function (button) {
     button.starts.on("click", function (event){
-      startButton(event, button);
+      triggerCountdown(event, button);
     })
   };
 
