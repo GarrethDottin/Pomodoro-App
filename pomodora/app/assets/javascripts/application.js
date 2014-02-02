@@ -17,12 +17,13 @@
 //= require twitter/bootstrap
 
 
-//Notes for Optimization
-//Put the counter in a global variable
-//Fix Bug with clicking start button twice
+//for functions that are used alot, customize them
+//so they can accept different parameters
+//dont instantiate every
 
-var start = $('#start')
+
 function hideYesandNo() {
+    var start = $('#start');
     $('#yes').fadeToggle( "slow", "linear" );
     $('#no').fadeToggle( "slow", "linear" );
     start.prop("disabled",false);
@@ -30,24 +31,27 @@ function hideYesandNo() {
 
 var startClicked = (function (button) {
   counter = 0;
-  var startButton = function (event, button){
+  var triggerCountdown = function (event, button){
     if ($('#textbox').val().length >= 1) {
       counter++
-      var itemNum = "item" + counter
-      var itemNumber = document.createElement("div")
-      itemNumber.setAttribute("id", itemNum)
-      itemNumber.setAttribute("class", "completed")
-      $('.list-container').append(itemNumber)
-      $('.completed').css("display", "inline")
-      var useritem = $('#textbox').val()
-      $("#" + itemNum).text(useritem)
+      createTodoItem(counter)
     }
-    start.prop("disabled",true)
-    countdown("countdown", 0, 4);
+    button.starts.prop("disabled",true)
+    var string = $('#countdown').text().replace(':00','')
+    var string = Number(string)
+    countdown("countdown", string, 0);
+  };
+  var createTodoItem = function (counter) {
+    var itemNum = "item" + counter
+    var itemNumber = document.createElement("div")
+    itemNumber.setAttribute("id", itemNum)
+    itemNumber.setAttribute("class", "completed")
+    $('.list-container').append(itemNumber)
+    $('.completed').css("display", "inline")
+    var useritem = $('#textbox').val()
+    $("#" + itemNum).text(useritem)
   };
   var countdown = function (element, minutes, seconds) {
-    console.log("what is is this" + element)
-    console.log("countdown function is called")
     var time = minutes*60 + seconds;
     var countdown = $('#countdown');
     var interval = setInterval(function() {
@@ -78,31 +82,21 @@ var startClicked = (function (button) {
 
   var bindFunctions = function (button) {
     button.starts.on("click", function (event){
-      startButton(event, button);
-    })
+      triggerCountdown(event, button);
+    });
   };
 
-  var init = function () {
-    var button = new Buttons();
+  var init = function (button) {
     bindFunctions(button);
   };
 
   return {
     init: init,
     startClicked: startClicked
-  }
+  };
 }) ();
 
-
-function Buttons(){
-  this.no = $('#no');
-  this.yes = $('#yes');
-  this.starts = $('#start');
-};
-
-
-function showStartHideYesNo() {
-  var button = new Buttons();
+function showStartHideYesNo(button) {
   $('.finished').fadeOut('slow', function() {
       $('.finished').css("display", "none")
       $('#countdown').css("display", "inline-block")
@@ -127,7 +121,6 @@ var buttonClicked = (function (button) {
   };
 
   var opacitySetting = function (opacityAmount) {
-    console.log(opacityAmount)
     var moveItem = (counter * -20) +25
     var topAmount = "+=" + (180 + moveItem)
     $('#item' + counter).animate({
@@ -138,12 +131,12 @@ var buttonClicked = (function (button) {
   var noButton = function(event, button) {
     queFeature();
     hideYesandNo();
-    showStartHideYesNo();
+    showStartHideYesNo(button);
   };
   var yesButton = function(event, button) {
     queFeature(yes)
     hideYesandNo();
-    showStartHideYesNo()
+    showStartHideYesNo(button)
     id +=10
     $('.progressBar').attr("id", "max" + id)
     function progress(percent, element) {
@@ -167,8 +160,7 @@ var buttonClicked = (function (button) {
     })
   };
 
-  var init = function () {
-    var button = new Buttons();
+  var init = function (button) {
     bindFunctions(button);
   };
 
@@ -193,14 +185,67 @@ var NewsFeed = {
         $('#newsfeed').show( 1500, function() {});
         counterDisplay++
         if (counterDisplay == NewsFeed.texts.length) {
-          counterDisplay = 0;
-        }
-      },11000)
+            counterDisplay = 0;
+          }
+        },11000)
+      }
     }
-  }
+
+  var timerSetting = (function (button) {
+    var setTimer = function (event, button, length) {
+      var countdown = $('#countdown');
+      console.log(length)
+      switch (length)
+      {
+        case 3:
+          countdown.text("25:00");
+          break;
+        case 2:
+          countdown.text("10:00");
+        break;
+        case 1:
+          countdown.text("5:00");
+        break;
+      }
+
+    }
+
+    var bindFunctions = function (button) {
+      button.longPomodoro.on("click",  function (event) {
+        setTimer(event, button, 3)
+      });
+
+      button.medPomodoro.on("click", function (event) {
+        setTimer(event, button, 2)
+      });
+
+      button.shortPomodoro.on("click", function (event) {
+        setTimer(event, button, 1)
+      });
+    };
+
+    var init = function (button) {
+      bindFunctions(button);
+    };
+
+    return {
+      init: init
+    }
+
+  }) ();
 
 $(function (){
-  startClicked.init()
-  NewsFeed.init()
-  buttonClicked.init()
-})
+  var button = {};
+  button.no = $('#no');
+  button.yes = $('#yes');
+  button.starts = $('#start');
+  button.longPomodoro = $('.twenty-five');
+  button.medPomodoro = $('.ten');
+  button.shortPomodoro = $('.five');
+  startClicked.init(button);
+  timerSetting.init(button);
+  NewsFeed.init(button);
+  buttonClicked.init(button);
+});
+
+// create Timer Feature on the dom ugly
