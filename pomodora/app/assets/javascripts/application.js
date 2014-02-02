@@ -17,12 +17,13 @@
 //= require twitter/bootstrap
 
 
-//Notes for Optimization
-//Put the counter in a global variable
-//Fix Bug with clicking start button twice
+//for functions that are used alot, customize them
+//so they can accept different parameters
+//dont instantiate every
+
 
 function hideYesandNo() {
-    var start = $('#start')
+    var start = $('#start');
     $('#yes').fadeToggle( "slow", "linear" );
     $('#no').fadeToggle( "slow", "linear" );
     start.prop("disabled",false);
@@ -49,8 +50,6 @@ var startClicked = (function (button) {
     $("#" + itemNum).text(useritem)
   };
   var countdown = function (element, minutes, seconds) {
-    console.log("what is is this" + element)
-    console.log("countdown function is called")
     var time = minutes*60 + seconds;
     var countdown = $('#countdown');
     var interval = setInterval(function() {
@@ -82,30 +81,20 @@ var startClicked = (function (button) {
   var bindFunctions = function (button) {
     button.starts.on("click", function (event){
       triggerCountdown(event, button);
-    })
+    });
   };
 
-  var init = function () {
-    var button = new Buttons();
+  var init = function (button) {
     bindFunctions(button);
   };
 
   return {
     init: init,
     startClicked: startClicked
-  }
+  };
 }) ();
 
-
-function Buttons(){
-  this.no = $('#no');
-  this.yes = $('#yes');
-  this.starts = $('#start');
-};
-
-
-function showStartHideYesNo() {
-  var button = new Buttons();
+function showStartHideYesNo(button) {
   $('.finished').fadeOut('slow', function() {
       $('.finished').css("display", "none")
       $('#countdown').css("display", "inline-block")
@@ -141,12 +130,12 @@ var buttonClicked = (function (button) {
   var noButton = function(event, button) {
     queFeature();
     hideYesandNo();
-    showStartHideYesNo();
+    showStartHideYesNo(button);
   };
   var yesButton = function(event, button) {
     queFeature(yes)
     hideYesandNo();
-    showStartHideYesNo()
+    showStartHideYesNo(button)
     id +=10
     $('.progressBar').attr("id", "max" + id)
     function progress(percent, element) {
@@ -170,8 +159,7 @@ var buttonClicked = (function (button) {
     })
   };
 
-  var init = function () {
-    var button = new Buttons();
+  var init = function (button) {
     bindFunctions(button);
   };
 
@@ -196,14 +184,19 @@ var NewsFeed = {
         $('#newsfeed').show( 1500, function() {});
         counterDisplay++
         if (counterDisplay == NewsFeed.texts.length) {
-          counterDisplay = 0;
-        }
-      },11000)
+            counterDisplay = 0;
+          }
+        },11000)
+      }
     }
-  }
 
 $(function (){
-  startClicked.init()
-  NewsFeed.init()
-  buttonClicked.init()
+  var button = {};
+  button.no = $('#no');
+  button.yes = $('#yes');
+  button.starts = $('#start');
+  startClicked.init(button)
+  NewsFeed.init(button)
+  buttonClicked.init(button)
 })
+
