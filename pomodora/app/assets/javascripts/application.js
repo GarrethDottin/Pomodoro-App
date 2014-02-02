@@ -37,7 +37,9 @@ var startClicked = (function (button) {
       createTodoItem(counter)
     }
     button.starts.prop("disabled",true)
-    countdown("countdown", 0, 4);
+    var string = $('#countdown').text().replace(':00','')
+    var string = Number(string)
+    countdown("countdown", string, 0);
   };
   var createTodoItem = function (counter) {
     var itemNum = "item" + counter
@@ -119,7 +121,6 @@ var buttonClicked = (function (button) {
   };
 
   var opacitySetting = function (opacityAmount) {
-    console.log(opacityAmount)
     var moveItem = (counter * -20) +25
     var topAmount = "+=" + (180 + moveItem)
     $('#item' + counter).animate({
@@ -190,13 +191,61 @@ var NewsFeed = {
       }
     }
 
+  var timerSetting = (function (button) {
+    var setTimer = function (event, button, length) {
+      var countdown = $('#countdown');
+      console.log(length)
+      switch (length)
+      {
+        case 3:
+          countdown.text("25:00");
+          break;
+        case 2:
+          countdown.text("10:00");
+        break;
+        case 1:
+          countdown.text("5:00");
+        break;
+      }
+
+    }
+
+    var bindFunctions = function (button) {
+      button.longPomodoro.on("click",  function (event) {
+        setTimer(event, button, 3)
+      });
+
+      button.medPomodoro.on("click", function (event) {
+        setTimer(event, button, 2)
+      });
+
+      button.shortPomodoro.on("click", function (event) {
+        setTimer(event, button, 1)
+      });
+    };
+
+    var init = function (button) {
+      bindFunctions(button);
+    };
+
+    return {
+      init: init
+    }
+
+  }) ();
+
 $(function (){
   var button = {};
   button.no = $('#no');
   button.yes = $('#yes');
   button.starts = $('#start');
-  startClicked.init(button)
-  NewsFeed.init(button)
-  buttonClicked.init(button)
-})
+  button.longPomodoro = $('.twenty-five');
+  button.medPomodoro = $('.ten');
+  button.shortPomodoro = $('.five');
+  startClicked.init(button);
+  timerSetting.init(button);
+  NewsFeed.init(button);
+  buttonClicked.init(button);
+});
 
+// create Timer Feature on the dom ugly
