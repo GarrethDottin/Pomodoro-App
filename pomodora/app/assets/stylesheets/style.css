@@ -26,6 +26,22 @@ body {
 
 }
 
+.pomodoro-choices {
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear;
+  transition: border .25s linear, color .25s linear, background-color .25s linear;
+  padding: 10px 19px;
+  font-size: 12px;
+  line-height: 1.471;
+  border-radius: 2px;
+  background-color: #7399D5;
+  border-color: #7399D5;
+  border-color: #7399D5;
+  font-family: Aller;
+  font-size: 14px;
+  color: white;
+}
+
 .button-style {
   padding: 10px 19px;
   font-size: 17px;
@@ -42,10 +58,12 @@ body {
 
 
 .time-buttons {
+  display: inline-block;
   position: relative;
-  bottom: 50px;
-  right: 130px;
+  bottom: 70px;
+  right: 40px;
   z-index: 10;
+  width: 400px;
 }
 #no {
   background-color: #C74352;;

@@ -35,9 +35,10 @@ h1 {
   border-bottom: solid grey;
 }
 #countdown {
+  display: inline-block;
   position: relative;
   top: 50px;
-  left: 160px;
+  left: 50px;
   font-size: 40px;
 }
 .que {
@@ -72,6 +73,7 @@ h1 {
 }
 
 #user-input {
+  display: inline-block;
   position: relative;
   margin: auto;
   text-align: center;
@@ -83,10 +85,9 @@ h1 {
 .finished {
   position: relative;
   top: 50px;
-  left: 140px;
+  left: 112px;
   font-size: 40px;
   display: none;
-
 }
 
 button {
@@ -108,6 +109,7 @@ h3 {
 }
 #start {
   width: 200px;
+  top: 80px;
 }
 
 #yes {
@@ -126,6 +128,7 @@ h3 {
 
 .align-right {
   width: 300px;
+  text-align: center;
 }
 
 .list-container {
