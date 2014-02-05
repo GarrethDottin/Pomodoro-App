@@ -36,7 +36,7 @@ Release 2 COMPLETE
       B. Fix Bottom Feature to display COMPLETE
   III. Modularize Code COMPLETE
 
-Release 3
+Release 3 COMPLETE
   I. Touch up Feature Bar
      A. Color COMPLETE
      B. Handlebars
@@ -50,16 +50,33 @@ Release 3
      B. Stylize it COM
 
 Release 4
--Handlebars video
--Different Timers
--Continue to Modularize Code
--Get Feedback
--Add What is a pomodora page
--Separate QUe Feature
+  I. Design:
+    A. Add Engraving
+    B. Highlighting of Buttons
+    C. Content on What is Pomodora
+    D. Who Designed it
+  II. Deployment
+    A. Get Feedback from 5 second landing
+    B. Get Russ Feedback
+    C. Heroku
+  III. Development
+    A. Modularize Que Feature
+    B. Separate Que Feature
 
+Steps:
+-Wireframe Styling
+-Change Look
+-Change Counter feature COMPLETE
+-Write out Engraving Text
+-Put up Engraving
+
+
+Release 5:
+I. Signin Form
+II. Posting System
 
 Release 4 and 5
--Different Timers
+-Different Timers COMPLETE
 -Fix Que Feature
 -About Me
 -What is Pomodora

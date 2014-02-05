@@ -2,12 +2,11 @@ body {
   background-image: url(http://www.good.co/assets/subtle-pattern.jpg);
 }
 .completed {
-  background-color: #ddcf99;
-  border-color:
+  background-color: #FAF5F6;
   display: none;
   height: 20px;
   left: 2px;
-  width: 96px;
+  width: 97px;
   border-radius: 1.5px;
 }
 
@@ -26,6 +25,22 @@ body {
 
 }
 
+.pomodoro-choices {
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear;
+  transition: border .25s linear, color .25s linear, background-color .25s linear;
+  padding: 10px 19px;
+  font-size: 12px;
+  line-height: 1.471;
+  border-radius: 2px;
+  background-color: #7399D5;
+  border-color: #7399D5;
+  border-color: #7399D5;
+  font-family: Aller;
+  font-size: 14px;
+  color: white;
+}
+
 .button-style {
   padding: 10px 19px;
   font-size: 17px;
@@ -42,10 +57,12 @@ body {
 
 
 .time-buttons {
+  display: inline-block;
   position: relative;
-  bottom: 50px;
-  right: 130px;
+  bottom: 70px;
+  right: 40px;
   z-index: 10;
+  width: 400px;
 }
 #no {
   background-color: #C74352;;
@@ -76,17 +93,19 @@ body {
 
 #que-title {
   position: relative;
-  color: white;
+  color: #7399D5;
   font-family: Aller;
-  text-decoration:underline;
+  text-decoration: underline;
   left: 2px;
   text-align: center;
+  font-size: 18px;
+  top: 5px;
 }
 #que-footer {
   color: white;
   font-family: Aller;
   font-size: 15px;
-  text-decoration:underline;
+  font-style: bodl  ;
   text-align: center;
 }
 #newsfeed {
