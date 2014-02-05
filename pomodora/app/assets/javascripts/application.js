@@ -31,6 +31,7 @@ function hideYesandNo() {
 
 var startClicked = (function (button) {
   counter = 0;
+  counter1 = 0;
   var triggerCountdown = function (event, button){
     if ($('#textbox').val().length >= 1) {
       counter++
@@ -39,7 +40,7 @@ var startClicked = (function (button) {
     button.starts.prop("disabled",true)
     var string = $('#countdown').text().replace(':00','')
     var string = Number(string)
-    countdown("countdown", string, 0);
+    countdown("countdown", 0, 02);
   };
   var createTodoItem = function (counter) {
     var itemNum = "item" + counter
@@ -121,7 +122,7 @@ var buttonClicked = (function (button) {
   };
 
   var opacitySetting = function (opacityAmount) {
-    var moveItem = (counter * -20) +25
+    var moveItem = (counter1 * -20) +39
     var topAmount = "+=" + (180 + moveItem)
     $('#item' + counter).animate({
     top: topAmount,
@@ -134,6 +135,7 @@ var buttonClicked = (function (button) {
     showStartHideYesNo(button);
   };
   var yesButton = function(event, button) {
+    counter1++
     queFeature(yes)
     hideYesandNo();
     showStartHideYesNo(button)

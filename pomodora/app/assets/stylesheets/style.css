@@ -2,12 +2,11 @@ body {
   background-image: url(http://www.good.co/assets/subtle-pattern.jpg);
 }
 .completed {
-  background-color: #ddcf99;
-  border-color:
+  background-color: #FAF5F6;
   display: none;
   height: 20px;
   left: 2px;
-  width: 96px;
+  width: 97px;
   border-radius: 1.5px;
 }
 
@@ -94,17 +93,19 @@ body {
 
 #que-title {
   position: relative;
-  color: white;
+  color: #7399D5;
   font-family: Aller;
-  text-decoration:underline;
+  text-decoration: underline;
   left: 2px;
   text-align: center;
+  font-size: 18px;
+  top: 5px;
 }
 #que-footer {
   color: white;
   font-family: Aller;
   font-size: 15px;
-  text-decoration:underline;
+  font-style: bodl  ;
   text-align: center;
 }
 #newsfeed {
